@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoFine · Know Before You Owe</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0c0e14;
+      color: #f4f5f8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+    }
+
+    .nav-logo {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 16px;
+      color: #42d686;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: #888d99;
+      text-decoration: none;
+    }
+
+    .nav-link:hover { color: #f4f5f8; }
+
+    hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 32px 64px;
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #888d99;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: #f4f5f8;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #42d686;
+    }
+
+    .sub {
+      font-size: 16px;
+      color: #888d99;
+      line-height: 1.7;
+      margin-top: 20px;
+      max-width: 480px;
+    }
+
+    .cta {
+      margin-top: 48px;
+      display: inline-block;
+      background: #42d686;
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+    }
+
+    .cta:hover { background: #5de090; }
+
+    .features {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 32px 80px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .feature {
+      background: #181c25;
+      border: 1px solid #272b36;
+      border-radius: 16px;
+      padding: 24px;
+      flex: 1;
+      min-width: 220px;
+      max-width: 280px;
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .feature h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f4f5f8;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: #888d99;
+      line-height: 1.6;
+    }
+
+    .airports {
+      width: 100%;
+      max-width: 900px;
+      padding: 0 32px 80px;
+    }
+
+    .airports h2 {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #565a66;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .airport-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .airport-pill {
+      background: #181c25;
+      border: 1px solid #272b36;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #bfc3cc;
+      font-family: 'Courier New', monospace;
+    }
+
+    footer {
+      width: 100%;
+      border-top: 1px solid #272b36;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      font-size: 12px;
+      color: #565a66;
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    footer a:hover { color: #888d99; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">NOFINE</span>
+    <a href="privacy.html" class="nav-link">Privacy Policy</a>
+  </nav>
+
+  <hero>
+    <p class="eyebrow">FOR PCO DRIVERS · LONDON</p>
+    <h1>Know before<br>you <em>owe.</em></h1>
+    <p class="sub">NoFine automatically detects when you enter airport drop-off zones and reminds you to pay — before it becomes a fine.</p>
+    <a class="cta" href="https://apps.apple.com/app/nofine/id000000000">Download on the App Store</a>
+  </hero>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📍</div>
+      <h3>Auto Detection</h3>
+      <p>GPS geofencing detects drop-off zones automatically — even when the app is closed.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⏰</div>
+      <h3>Payment Reminders</h3>
+      <p>Smart reminders before the midnight deadline so you never miss a payment.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🚗</div>
+      <h3>Multiple Vehicles</h3>
+      <p>Add all your vehicles and switch between them instantly.</p>
+    </div>
+  </div>
+
+  <div class="airports">
+    <h2>SUPPORTED AIRPORTS</h2>
+    <div class="airport-grid">
+      <span class="airport-pill">Heathrow T2</span>
+      <span class="airport-pill">Heathrow T3</span>
+      <span class="airport-pill">Heathrow T4</span>
+      <span class="airport-pill">Heathrow T5</span>
+      <span class="airport-pill">Gatwick North</span>
+      <span class="airport-pill">Gatwick South</span>
+      <span class="airport-pill">Stansted</span>
+      <span class="airport-pill">Luton</span>
+      <span class="airport-pill">London City</span>
+    </div>
+  </div>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="mailto:support@nofine.app">Support</a>
+    <a href="#">© 2026 NoFine</a>
+  </footer>
+
+</body>
+</html>
