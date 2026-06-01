@@ -721,25 +721,6 @@
       align-self: flex-end;
     }
 
-    /* Plane */
-    .plane {
-      position: absolute;
-      width: 80px;
-      top: 10px;
-      right: -90px;
-      animation: fly-in 12s ease-in-out infinite;
-      opacity: 0;
-    }
-
-    @keyframes fly-in {
-      0%   { right: -90px; top: 30px; opacity: 0; }
-      10%  { opacity: 0.8; }
-      60%  { right: 140px; top: 10px; opacity: 0.9; }
-      80%  { right: 300px; top: -20px; opacity: 0.6; }
-      90%  { right: 420px; top: -50px; opacity: 0; }
-      100% { right: 420px; top: -50px; opacity: 0; }
-    }
-
     /* Road */
     .road {
       position: absolute;
@@ -803,35 +784,69 @@
       pointer-events: none;
     }
 
-    /* Notification bubble — child of .taxi so it moves with it */
+    /* GPS ping rings — inside .taxi, shows when stopped */
+    .gps-ring {
+      position: absolute;
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--green);
+      border-radius: 50%;
+      top: -24px;
+      left: 36px;
+      opacity: 0;
+      animation: gps-ping 14s ease-in-out infinite;
+    }
+
+    .gps-ring:nth-child(2) { animation-delay: 0.6s; width: 28px; height: 28px; top: -29px; left: 31px; }
+    .gps-ring:nth-child(3) { animation-delay: 1.2s; width: 40px; height: 40px; top: -35px; left: 25px; }
+
+    @keyframes gps-ping {
+      0%, 33%   { opacity: 0; transform: scale(0.6); }
+      36%        { opacity: 0.7; transform: scale(1); }
+      44%        { opacity: 0; transform: scale(1.4); }
+      100%       { opacity: 0; }
+    }
+
+    /* Notification bubbles — 5 airports, 70s total cycle */
     .taxi-bubble {
       position: absolute;
       bottom: 52px;
-      left: -60px;
-      width: 200px;
+      left: -55px;
+      width: 195px;
       background: var(--bg3);
       border: 1px solid rgba(66, 214, 134, 0.4);
       border-radius: 12px;
-      padding: 10px 14px;
+      padding: 10px 13px;
       opacity: 0;
       transform: translateY(6px) scale(0.9);
-      animation: bubble-show 14s ease-in-out infinite;
+      animation: bubble-cycle 70s ease-in-out infinite;
       white-space: nowrap;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      pointer-events: none;
     }
 
-    /* Little tail on bubble */
+    .taxi-bubble:nth-of-type(2) { animation-delay: 14s; }
+    .taxi-bubble:nth-of-type(3) { animation-delay: 28s; }
+    .taxi-bubble:nth-of-type(4) { animation-delay: 42s; }
+    .taxi-bubble:nth-of-type(5) { animation-delay: 56s; }
+
+    /* Each bubble is visible during its 14s window (at 7%-11% of 70s = 4.9s-7.7s into window) */
+    @keyframes bubble-cycle {
+      0%    { opacity: 0; transform: translateY(6px) scale(0.9); }
+      6%    { opacity: 0; transform: translateY(6px) scale(0.9); }
+      8%    { opacity: 1; transform: translateY(0) scale(1); }
+      10%   { opacity: 1; transform: translateY(0) scale(1); }
+      12%   { opacity: 0; transform: translateY(-4px) scale(0.95); }
+      100%  { opacity: 0; }
+    }
+
     .taxi-bubble::after {
       content: '';
       position: absolute;
       bottom: -7px;
-      left: 88px;
-      width: 12px;
-      height: 7px;
+      left: 84px;
+      width: 12px; height: 7px;
       background: var(--bg3);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
-      border-left: 1px solid rgba(66,214,134,0.4);
-      border-right: 1px solid rgba(66,214,134,0.4);
     }
 
     .bubble-title {
@@ -848,14 +863,14 @@
       width: 5px; height: 5px;
       background: var(--green);
       border-radius: 50%;
-      animation: pulse 2s infinite;
       flex-shrink: 0;
+      animation: pulse 2s infinite;
     }
 
     .bubble-body {
       font-size: 10px;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .bubble-tag {
@@ -867,20 +882,11 @@
       letter-spacing: 1px;
     }
 
-    @keyframes bubble-show {
-      0%    { opacity: 0; transform: translateY(6px) scale(0.9); }
-      34%   { opacity: 0; transform: translateY(6px) scale(0.9); }
-      39%   { opacity: 1; transform: translateY(0) scale(1); }
-      52%   { opacity: 1; transform: translateY(0) scale(1); }
-      57%   { opacity: 0; transform: translateY(-4px) scale(0.95); }
-      100%  { opacity: 0; }
-    }
-
     @media (max-width: 720px) {
-      .taxi-scene { height: 160px; }
+      .taxi-scene { height: 180px; }
       .terminal-body { width: 80px; height: 42px; }
       .terminal-tower { height: 55px; }
-      .taxi-bubble { width: 160px; left: -35px; font-size: 9px; }
+      .taxi-bubble { width: 165px; left: -37px; }
     }
 
     /* ── RESPONSIVE ───────────────────────────────────────────────────── */
@@ -1035,19 +1041,9 @@
             <div class="win"></div><div class="win"></div><div class="win"></div>
             <div class="win"></div><div class="win"></div><div class="win"></div>
           </div>
-          <div class="terminal-sign">LHR</div>
+          <div class="terminal-sign">AIRPORT</div>
         </div>
         <div class="terminal-jetway"></div>
-      </div>
-
-      <!-- Plane -->
-      <div class="plane">
-        <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 16 L52 8 L72 10 Q78 11 76 14 Q74 17 68 16 L52 18 L20 24 Z" fill="#f4f5f8" opacity="0.9"/>
-          <path d="M28 8 L38 2 L44 4 L36 10 Z" fill="#f4f5f8" opacity="0.8"/>
-          <path d="M10 18 L16 22 L20 20 L14 16 Z" fill="#f4f5f8" opacity="0.7"/>
-          <circle cx="62" cy="13" r="1.5" fill="#42d686" opacity="0.9"/>
-        </svg>
       </div>
 
       <!-- Road -->
@@ -1062,13 +1058,35 @@
       <!-- Taxi -->
       <div class="taxi">
 
-        <!-- Notification bubble -->
+        <!-- GPS ping rings -->
+        <div class="gps-ring"></div>
+        <div class="gps-ring"></div>
+        <div class="gps-ring"></div>
+
+        <!-- 5 rotating airport bubbles — 70s total cycle -->
         <div class="taxi-bubble">
-          <div class="bubble-title">
-            <span class="bubble-dot"></span>
-            Heathrow T2 — Drop-off detected
-          </div>
-          <div class="bubble-body">Don't forget your payment!<br>Pay before midnight to avoid fines.</div>
+          <div class="bubble-title"><span class="bubble-dot"></span>Heathrow T2</div>
+          <div class="bubble-body">Drop-off zone detected.<br>Don't forget your payment!</div>
+          <span class="bubble-tag">via NOFINE</span>
+        </div>
+        <div class="taxi-bubble">
+          <div class="bubble-title"><span class="bubble-dot"></span>Gatwick North</div>
+          <div class="bubble-body">Drop-off zone detected.<br>Don't forget your payment!</div>
+          <span class="bubble-tag">via NOFINE</span>
+        </div>
+        <div class="taxi-bubble">
+          <div class="bubble-title"><span class="bubble-dot"></span>Stansted Airport</div>
+          <div class="bubble-body">Drop-off zone detected.<br>Don't forget your payment!</div>
+          <span class="bubble-tag">via NOFINE</span>
+        </div>
+        <div class="taxi-bubble">
+          <div class="bubble-title"><span class="bubble-dot"></span>Luton Airport</div>
+          <div class="bubble-body">Drop-off zone detected.<br>Don't forget your payment!</div>
+          <span class="bubble-tag">via NOFINE</span>
+        </div>
+        <div class="taxi-bubble">
+          <div class="bubble-title"><span class="bubble-dot"></span>London City</div>
+          <div class="bubble-body">Drop-off zone detected.<br>Don't forget your payment!</div>
           <span class="bubble-tag">via NOFINE</span>
         </div>
 
