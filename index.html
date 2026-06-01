@@ -606,6 +606,206 @@
 
     footer a:hover { color: var(--muted); }
 
+    /* ── TAXI ANIMATION ──────────────────────────────────────────────── */
+
+    .taxi-scene-wrap {
+      width: 100%;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .taxi-scene {
+      max-width: 960px;
+      margin: 0 auto;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Sky */
+    .sky {
+      position: absolute;
+      inset: 0;
+      bottom: 32px;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #f4f5f8;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.1; }
+    }
+
+    /* Terminal */
+    .terminal {
+      position: absolute;
+      right: 60px;
+      bottom: 32px;
+      display: flex;
+      align-items: flex-end;
+      gap: 0;
+    }
+
+    .terminal-tower {
+      width: 18px;
+      height: 70px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 3px 3px 0 0;
+    }
+
+    .terminal-body {
+      width: 110px;
+      height: 52px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .terminal-windows {
+      display: flex;
+      gap: 5px;
+    }
+
+    .win {
+      width: 10px;
+      height: 10px;
+      background: rgba(66, 214, 134, 0.15);
+      border: 1px solid rgba(66, 214, 134, 0.25);
+      border-radius: 1px;
+      animation: winblink 4s ease-in-out infinite;
+    }
+
+    .win:nth-child(2) { animation-delay: 0.6s; }
+    .win:nth-child(4) { animation-delay: 1.2s; }
+    .win:nth-child(6) { animation-delay: 1.8s; }
+
+    @keyframes winblink {
+      0%, 90%, 100% { background: rgba(66, 214, 134, 0.15); }
+      95% { background: rgba(66, 214, 134, 0.4); }
+    }
+
+    .terminal-sign {
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .terminal-jetway {
+      width: 30px;
+      height: 12px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 2px 2px 0 0;
+      margin-left: 8px;
+      align-self: flex-end;
+    }
+
+    /* Plane */
+    .plane {
+      position: absolute;
+      width: 80px;
+      top: 10px;
+      right: -90px;
+      animation: fly-in 12s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes fly-in {
+      0%   { right: -90px; top: 30px; opacity: 0; }
+      10%  { opacity: 0.8; }
+      60%  { right: 140px; top: 10px; opacity: 0.9; }
+      80%  { right: 300px; top: -20px; opacity: 0.6; }
+      90%  { right: 420px; top: -50px; opacity: 0; }
+      100% { right: 420px; top: -50px; opacity: 0; }
+    }
+
+    /* Road */
+    .road {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: #0d0f16;
+      border-top: 1px solid #1e2229;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .road-line {
+      height: 3px;
+      width: 50px;
+      background: #f5a623;
+      opacity: 0.25;
+      margin-right: 40px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      animation: road-scroll 1.6s linear infinite;
+    }
+
+    .road-line:nth-child(2) { animation-delay: -0.32s; }
+    .road-line:nth-child(3) { animation-delay: -0.64s; }
+    .road-line:nth-child(4) { animation-delay: -0.96s; }
+    .road-line:nth-child(5) { animation-delay: -1.28s; }
+
+    @keyframes road-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-90px); }
+    }
+
+    /* Taxi */
+    .taxi {
+      position: absolute;
+      bottom: 18px;
+      width: 90px;
+      animation: drive 8s linear infinite;
+    }
+
+    @keyframes drive {
+      0%   { left: -100px; }
+      100% { left: calc(100% + 20px); }
+    }
+
+    .headlight-beam {
+      position: absolute;
+      right: -28px;
+      top: 14px;
+      width: 32px;
+      height: 6px;
+      background: linear-gradient(to right, rgba(245,240,168,0.4), transparent);
+      border-radius: 0 4px 4px 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 720px) {
+      .taxi-scene { height: 110px; }
+      .terminal-body { width: 80px; height: 42px; }
+      .terminal-tower { height: 55px; }
+    }
+
     /* ── RESPONSIVE ───────────────────────────────────────────────────── */
 
     @media (max-width: 840px) {
@@ -733,6 +933,87 @@
         <span class="stat-num">0s</span>
         <div class="stat-label">Setup time · works automatically</div>
       </div>
+    </div>
+  </div>
+
+  <!-- TAXI ANIMATION -->
+  <div class="taxi-scene-wrap">
+    <div class="taxi-scene">
+
+      <!-- Sky -->
+      <div class="sky">
+        <div class="star" style="top:18%;left:8%;animation-delay:0s"></div>
+        <div class="star" style="top:30%;left:22%;animation-delay:0.8s"></div>
+        <div class="star" style="top:12%;left:40%;animation-delay:1.6s"></div>
+        <div class="star" style="top:25%;left:58%;animation-delay:0.4s"></div>
+        <div class="star" style="top:10%;left:75%;animation-delay:1.2s"></div>
+        <div class="star" style="top:35%;left:88%;animation-delay:2s"></div>
+      </div>
+
+      <!-- Airport terminal -->
+      <div class="terminal">
+        <div class="terminal-tower"></div>
+        <div class="terminal-body">
+          <div class="terminal-windows">
+            <div class="win"></div><div class="win"></div><div class="win"></div>
+            <div class="win"></div><div class="win"></div><div class="win"></div>
+          </div>
+          <div class="terminal-sign">LHR</div>
+        </div>
+        <div class="terminal-jetway"></div>
+      </div>
+
+      <!-- Plane -->
+      <div class="plane">
+        <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 16 L52 8 L72 10 Q78 11 76 14 Q74 17 68 16 L52 18 L20 24 Z" fill="#f4f5f8" opacity="0.9"/>
+          <path d="M28 8 L38 2 L44 4 L36 10 Z" fill="#f4f5f8" opacity="0.8"/>
+          <path d="M10 18 L16 22 L20 20 L14 16 Z" fill="#f4f5f8" opacity="0.7"/>
+          <circle cx="62" cy="13" r="1.5" fill="#42d686" opacity="0.9"/>
+        </svg>
+      </div>
+
+      <!-- Road -->
+      <div class="road">
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+      </div>
+
+      <!-- Taxi -->
+      <div class="taxi">
+        <svg viewBox="0 0 90 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body -->
+          <rect x="6" y="18" width="78" height="20" rx="4" fill="#f5a623"/>
+          <!-- Roof -->
+          <path d="M22 18 L28 6 L62 6 L68 18 Z" fill="#f5a623"/>
+          <!-- Roof highlight -->
+          <path d="M30 6 L28 6 L22 18 L24 18 Z" fill="#e8951a" opacity="0.4"/>
+          <!-- Windows -->
+          <rect x="28" y="8" width="14" height="9" rx="2" fill="#0a0c12" opacity="0.8"/>
+          <rect x="46" y="8" width="14" height="9" rx="2" fill="#0a0c12" opacity="0.8"/>
+          <!-- Window shine -->
+          <rect x="29" y="9" width="4" height="3" rx="1" fill="#42d686" opacity="0.3"/>
+          <rect x="47" y="9" width="4" height="3" rx="1" fill="#42d686" opacity="0.3"/>
+          <!-- Taxi sign -->
+          <rect x="36" y="1" width="18" height="7" rx="2" fill="#42d686"/>
+          <text x="45" y="7" text-anchor="middle" font-family="Courier New" font-size="5" font-weight="bold" fill="#000">TAXI</text>
+          <!-- Wheels -->
+          <circle cx="22" cy="38" r="6" fill="#181c25" stroke="#565a66" stroke-width="1.5"/>
+          <circle cx="22" cy="38" r="2.5" fill="#565a66"/>
+          <circle cx="68" cy="38" r="6" fill="#181c25" stroke="#565a66" stroke-width="1.5"/>
+          <circle cx="68" cy="38" r="2.5" fill="#565a66"/>
+          <!-- Headlight -->
+          <rect x="80" y="22" width="6" height="4" rx="1" fill="#f5f0a8" opacity="0.9"/>
+          <!-- Door line -->
+          <line x1="44" y1="18" x2="44" y2="38" stroke="#e8951a" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <!-- Headlight beam -->
+        <div class="headlight-beam"></div>
+      </div>
+
     </div>
   </div>
 
