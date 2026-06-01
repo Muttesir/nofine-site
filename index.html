@@ -618,7 +618,7 @@
     .taxi-scene {
       max-width: 960px;
       margin: 0 auto;
-      height: 140px;
+      height: 180px;
       position: relative;
       overflow: hidden;
     }
@@ -781,12 +781,15 @@
       position: absolute;
       bottom: 18px;
       width: 90px;
-      animation: drive 8s linear infinite;
+      animation: drive 14s ease-in-out infinite;
     }
 
     @keyframes drive {
       0%   { left: -100px; }
-      100% { left: calc(100% + 20px); }
+      35%  { left: calc(62% - 140px); } /* arrive near terminal */
+      55%  { left: calc(62% - 140px); } /* stopped */
+      80%  { left: calc(100% + 20px); } /* drive away */
+      100% { left: calc(100% + 20px); } /* pause off-screen */
     }
 
     .headlight-beam {
@@ -800,10 +803,84 @@
       pointer-events: none;
     }
 
+    /* Notification bubble — child of .taxi so it moves with it */
+    .taxi-bubble {
+      position: absolute;
+      bottom: 52px;
+      left: -60px;
+      width: 200px;
+      background: var(--bg3);
+      border: 1px solid rgba(66, 214, 134, 0.4);
+      border-radius: 12px;
+      padding: 10px 14px;
+      opacity: 0;
+      transform: translateY(6px) scale(0.9);
+      animation: bubble-show 14s ease-in-out infinite;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Little tail on bubble */
+    .taxi-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 88px;
+      width: 12px;
+      height: 7px;
+      background: var(--bg3);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-left: 1px solid rgba(66,214,134,0.4);
+      border-right: 1px solid rgba(66,214,134,0.4);
+    }
+
+    .bubble-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .bubble-dot {
+      width: 5px; height: 5px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    .bubble-body {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .bubble-tag {
+      display: inline-block;
+      margin-top: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 9px;
+      color: var(--green);
+      letter-spacing: 1px;
+    }
+
+    @keyframes bubble-show {
+      0%    { opacity: 0; transform: translateY(6px) scale(0.9); }
+      34%   { opacity: 0; transform: translateY(6px) scale(0.9); }
+      39%   { opacity: 1; transform: translateY(0) scale(1); }
+      52%   { opacity: 1; transform: translateY(0) scale(1); }
+      57%   { opacity: 0; transform: translateY(-4px) scale(0.95); }
+      100%  { opacity: 0; }
+    }
+
     @media (max-width: 720px) {
-      .taxi-scene { height: 110px; }
+      .taxi-scene { height: 160px; }
       .terminal-body { width: 80px; height: 42px; }
       .terminal-tower { height: 55px; }
+      .taxi-bubble { width: 160px; left: -35px; font-size: 9px; }
     }
 
     /* ── RESPONSIVE ───────────────────────────────────────────────────── */
@@ -984,6 +1061,17 @@
 
       <!-- Taxi -->
       <div class="taxi">
+
+        <!-- Notification bubble -->
+        <div class="taxi-bubble">
+          <div class="bubble-title">
+            <span class="bubble-dot"></span>
+            Heathrow T2 — Drop-off detected
+          </div>
+          <div class="bubble-body">Don't forget your payment!<br>Pay before midnight to avoid fines.</div>
+          <span class="bubble-tag">via NOFINE</span>
+        </div>
+
         <svg viewBox="0 0 90 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Body -->
           <rect x="6" y="18" width="78" height="20" rx="4" fill="#f5a623"/>
