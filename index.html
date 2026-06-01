@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoFine · Know Before You Owe</title>
-  <meta name="description" content="NoFine automatically detects when you enter airport drop-off zones and reminds you to pay — before it becomes a fine." />
+  <meta name="description" content="NoFine helps professional drivers avoid airport and road charge penalties with automatic zone detection and payment reminders." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <style>
@@ -102,8 +102,6 @@
       align-items: center;
     }
 
-    .hero-left {}
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -152,6 +150,14 @@
       font-size: 16px;
       color: var(--muted);
       line-height: 1.75;
+      margin-bottom: 10px;
+      max-width: 420px;
+    }
+
+    .hero-sub-2 {
+      font-size: 14px;
+      color: var(--dim);
+      line-height: 1.6;
       margin-bottom: 36px;
       max-width: 420px;
     }
@@ -183,11 +189,6 @@
 
     .btn-primary svg { flex-shrink: 0; }
 
-    .hero-note {
-      font-size: 12px;
-      color: var(--dim);
-    }
-
     /* ── PHONE MOCKUP ────────────────────────────────────────────────── */
 
     .hero-right {
@@ -202,7 +203,6 @@
       border-radius: 36px;
       padding: 16px;
       box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
-      position: relative;
     }
 
     .phone-notch {
@@ -263,24 +263,9 @@
       letter-spacing: 0.5px;
     }
 
-    .notif-time {
-      font-size: 9px;
-      color: var(--dim);
-      margin-left: auto;
-    }
-
-    .notif-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    .notif-body {
-      font-size: 10px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
+    .notif-time { font-size: 9px; color: var(--dim); margin-left: auto; }
+    .notif-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .notif-body { font-size: 10px; color: var(--muted); line-height: 1.4; }
 
     .phone-card {
       background: var(--bg2);
@@ -289,44 +274,11 @@
       padding: 14px;
     }
 
-    .card-label {
-      font-size: 9px;
-      color: var(--dim);
-      font-family: 'Courier New', monospace;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .card-zone {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    .card-time {
-      font-size: 10px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .card-fee {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--amber);
-      margin-bottom: 10px;
-    }
-
-    .card-btn {
-      display: block;
-      background: var(--green);
-      color: #000;
-      font-size: 10px;
-      font-weight: 700;
-      text-align: center;
-      padding: 8px;
-      border-radius: 8px;
-    }
+    .card-label { font-size: 9px; color: var(--dim); font-family: 'Courier New', monospace; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .card-zone { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .card-time { font-size: 10px; color: var(--muted); margin-bottom: 10px; }
+    .card-fee { font-size: 22px; font-weight: 700; color: var(--amber); margin-bottom: 10px; }
+    .card-btn { display: block; background: var(--green); color: #000; font-size: 10px; font-weight: 700; text-align: center; padding: 8px; border-radius: 8px; }
 
     /* ── STAT BAR ────────────────────────────────────────────────────── */
 
@@ -346,9 +298,7 @@
       gap: 24px;
     }
 
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
 
     .stat-num {
       font-size: 32px;
@@ -357,17 +307,10 @@
       display: block;
     }
 
-    .stat-num span {
-      color: var(--green);
-    }
+    .stat-num span { color: var(--green); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* ── HOW IT WORKS ─────────────────────────────────────────────────── */
+    /* ── SECTIONS ─────────────────────────────────────────────────────── */
 
     .section {
       max-width: 960px;
@@ -391,23 +334,21 @@
       max-width: 480px;
     }
 
-    .section-title em {
-      font-style: italic;
-      color: var(--green);
-    }
+    .section-title em { font-style: italic; color: var(--green); }
+
+    /* ── HOW IT WORKS — 4 steps horizontal ───────────────────────────── */
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
     .step {
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 28px;
-      position: relative;
+      padding: 24px 20px;
     }
 
     .step-num {
@@ -415,29 +356,29 @@
       font-size: 11px;
       color: var(--dim);
       letter-spacing: 1px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
-    .step-icon {
-      font-size: 28px;
-      margin-bottom: 14px;
+    .step-line {
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-bottom: 16px;
+      opacity: 0.6;
     }
 
     .step h3 {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .step p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
       line-height: 1.65;
-    }
-
-    .step-connector {
-      display: none;
     }
 
     /* ── FEATURES ─────────────────────────────────────────────────────── */
@@ -455,10 +396,18 @@
       padding: 28px;
     }
 
-    .feature-icon {
-      font-size: 26px;
-      margin-bottom: 16px;
+    .feature-marker {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
     }
+
+    .feature-marker svg { opacity: 0.7; }
 
     .feature h3 {
       font-size: 15px;
@@ -486,7 +435,7 @@
       flex-wrap: wrap;
     }
 
-    .fine-left { flex: 1; min-width: 220px; }
+    .fine-left { flex: 1; min-width: 180px; }
 
     .fine-amount {
       font-size: 56px;
@@ -496,32 +445,84 @@
       margin-bottom: 8px;
     }
 
-    .fine-label {
+    .fine-label { font-size: 14px; color: var(--muted); }
+
+    .fine-right { flex: 2; min-width: 260px; }
+
+    .fine-right p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .fine-right strong { color: var(--text); }
+
+    /* ── TRUST SECTION ────────────────────────────────────────────────── */
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .trust-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .trust-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(66, 214, 134, 0.12);
+      border: 1px solid rgba(66, 214, 134, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-check svg { color: var(--green); }
+
+    .trust-item span {
       font-size: 14px;
       color: var(--muted);
     }
 
-    .fine-right { flex: 2; min-width: 260px; }
+    /* ── PRIVACY SECTION ──────────────────────────────────────────────── */
 
-    .fine-right p {
+    .privacy-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .privacy-card-left {}
+
+    .privacy-card-right p {
       font-size: 15px;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
-    .fine-right strong {
-      color: var(--text);
+    .privacy-card-right p + p {
+      margin-top: 16px;
     }
 
-    /* ── AIRPORTS ─────────────────────────────────────────────────────── */
+    /* ── ZONES ────────────────────────────────────────────────────────── */
 
-    .airport-grid {
+    .zone-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .airport-pill {
+    .zone-pill {
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 100px;
@@ -535,12 +536,12 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .airport-pill:hover {
+    .zone-pill:hover {
       border-color: rgba(66, 214, 134, 0.3);
       color: var(--text);
     }
 
-    .airport-pill .dot {
+    .zone-pill .dot {
       width: 5px; height: 5px;
       background: var(--green);
       border-radius: 50%;
@@ -567,22 +568,13 @@
       margin-bottom: 16px;
     }
 
-    .cta-inner h2 em {
-      font-style: italic;
-      color: var(--green);
-    }
+    .cta-inner h2 em { font-style: italic; color: var(--green); }
 
-    .cta-inner p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
+    .cta-inner p { font-size: 15px; color: var(--muted); margin-bottom: 36px; }
 
     /* ── FOOTER ───────────────────────────────────────────────────────── */
 
-    footer {
-      border-top: 1px solid var(--border);
-    }
+    footer { border-top: 1px solid var(--border); }
 
     .footer-inner {
       max-width: 960px;
@@ -602,10 +594,7 @@
       letter-spacing: 2px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
 
     footer a {
       font-size: 12px;
@@ -619,6 +608,12 @@
 
     /* ── RESPONSIVE ───────────────────────────────────────────────────── */
 
+    @media (max-width: 840px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .privacy-card { grid-template-columns: 1fr; gap: 24px; }
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 720px) {
       .nav-links .nav-cta { display: none; }
 
@@ -629,7 +624,7 @@
         text-align: center;
       }
 
-      .hero-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .hero-sub, .hero-sub-2 { max-width: 100%; margin-left: auto; margin-right: auto; }
       .hero-actions { justify-content: center; }
       .hero-right { order: -1; }
       .phone { width: 180px; }
@@ -639,22 +634,22 @@
 
       .section { padding: 60px 24px; }
 
-      .steps { grid-template-columns: 1fr; gap: 16px; }
       .features-grid { grid-template-columns: 1fr 1fr; }
 
       .fine-callout { flex-direction: column; gap: 20px; padding: 28px; }
       .fine-amount { font-size: 44px; }
 
       .footer-inner { flex-direction: column; align-items: flex-start; }
-
       .section-title { margin-bottom: 32px; }
     }
 
     @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .nav-inner { padding: 16px 20px; }
       .hero { padding: 48px 20px 40px; }
       .section { padding: 48px 20px; }
+      .privacy-card { padding: 24px; }
     }
   </style>
 </head>
@@ -666,7 +661,7 @@
       <span class="nav-logo">NOFINE</span>
       <div class="nav-links">
         <a href="#how-it-works" class="nav-link">How it works</a>
-        <a href="#airports" class="nav-link">Airports</a>
+        <a href="#zones" class="nav-link">Zones</a>
         <a href="privacy.html" class="nav-link">Privacy</a>
         <a href="https://apps.apple.com/app/nofine/id6762614611" class="nav-cta">Download</a>
       </div>
@@ -681,14 +676,15 @@
         <span>NOW LIVE ON THE APP STORE</span>
       </div>
       <h1>Know before<br>you <em>owe.</em></h1>
-      <p class="hero-sub">NoFine automatically detects when you enter airport drop-off zones and reminds you to pay — before it becomes a fine of up to £160.</p>
+      <p class="hero-sub">NoFine helps professional drivers avoid airport and road charge penalties with automatic zone detection and payment reminders.</p>
+      <p class="hero-sub-2">Never miss another drop-off payment.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://apps.apple.com/app/nofine/id6762614611">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Download on the App Store
         </a>
       </div>
-      <p class="hero-note" style="margin-top:14px;">Free · iOS only · London airports</p>
+      <p style="font-size:12px;color:var(--dim);margin-top:14px;">Free · iOS only · London</p>
     </div>
 
     <div class="hero-right">
@@ -698,17 +694,15 @@
           <span><span class="status-dot"></span>GPS ON</span>
           <span>09:42</span>
         </div>
-
         <div class="phone-notif">
           <div class="notif-header">
-            <div class="notif-icon">✈️</div>
+            <div class="notif-icon">✈</div>
             <span class="notif-app">NOFINE</span>
             <span class="notif-time">now</span>
           </div>
           <div class="notif-title">Heathrow T2</div>
           <div class="notif-body">Did you enter the drop-off area? Tap to respond.</div>
         </div>
-
         <div class="phone-card">
           <div class="card-label">ACTIVE CHARGE</div>
           <div class="card-zone">Heathrow T2</div>
@@ -724,8 +718,8 @@
   <div class="stat-bar">
     <div class="stat-bar-inner">
       <div class="stat">
-        <span class="stat-num">9</span>
-        <div class="stat-label">London airports supported</div>
+        <span class="stat-num">11</span>
+        <div class="stat-label">Charge zones supported</div>
       </div>
       <div class="stat">
         <span class="stat-num"><span>£</span>80–160</span>
@@ -733,7 +727,7 @@
       </div>
       <div class="stat">
         <span class="stat-num">24h</span>
-        <div class="stat-label">Deadline to pay from drop-off</div>
+        <div class="stat-label">Deadline to pay from entry</div>
       </div>
       <div class="stat">
         <span class="stat-num">0s</span>
@@ -745,26 +739,32 @@
   <!-- HOW IT WORKS -->
   <section class="section" id="how-it-works">
     <div class="section-label">HOW IT WORKS</div>
-    <h2 class="section-title">Three steps,<br><em>zero fines.</em></h2>
+    <h2 class="section-title">Four steps,<br><em>zero fines.</em></h2>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-icon">📍</div>
-        <h3>GPS Detects You</h3>
-        <p>As soon as you cross into a drop-off zone, NoFine fires a notification — even if the app is closed or your phone is locked.</p>
+        <div class="step-line"></div>
+        <h3>Enter a charge zone</h3>
+        <p>GPS detects when you cross into a drop-off or road charge zone — even with the app closed.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-icon">✅</div>
-        <h3>Confirm in One Tap</h3>
-        <p>Tap YES on the notification. A charge card is created instantly with the fee, deadline, and a direct Pay Now link.</p>
+        <div class="step-line"></div>
+        <h3>Confirm the drop-off</h3>
+        <p>A notification asks if you dropped off. Tap YES and a charge card is created instantly.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-icon">💳</div>
-        <h3>Pay Before Midnight</h3>
-        <p>Smart reminders count down to the midnight deadline. Tap Pay Now to open the airport's payment page with your plate pre-copied.</p>
+        <div class="step-line"></div>
+        <h3>Get payment reminders</h3>
+        <p>Smart reminders count down to the payment deadline so nothing slips through.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-line"></div>
+        <h3>Avoid penalties</h3>
+        <p>Tap Pay Now to open the payment page with your plate copied. Mark paid. Done.</p>
       </div>
     </div>
   </section>
@@ -785,57 +785,130 @@
   <!-- FEATURES -->
   <section class="section" style="padding-top:0;">
     <div class="section-label">FEATURES</div>
-    <h2 class="section-title">Built for<br><em>PCO drivers.</em></h2>
+    <h2 class="section-title">Built for<br><em>professional drivers.</em></h2>
 
     <div class="features-grid">
       <div class="feature">
-        <div class="feature-icon">📡</div>
-        <h3>Background Detection</h3>
-        <p>GPS geofencing runs at OS level — app closed, screen off, doesn't matter.</p>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        </div>
+        <h3>Auto Detection</h3>
+        <p>GPS geofencing detects drop-off zones automatically — even when the app is closed.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🔔</div>
-        <h3>Smart Reminders</h3>
-        <p>Customisable first reminder (1–8 hrs) and a final warning before midnight.</p>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <h3>Payment Reminders</h3>
+        <p>Customisable reminders before the deadline — first alert 1–8 hrs after entry, final warning before midnight.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🚗</div>
-        <h3>Multiple Vehicles</h3>
-        <p>Add all your plates and switch between them instantly.</p>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Avoid Penalties</h3>
+        <p>Avoid penalties of up to £160 by paying airport and road charges before deadlines.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🔗</div>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
         <h3>One-Tap Pay</h3>
-        <p>Opens the airport payment page with your plate copied to clipboard.</p>
+        <p>Opens the payment page with your plate copied to clipboard. No typing, no searching.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">📋</div>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <h3>Charge History</h3>
-        <p>Full log of every drop-off, payment, and zone visit.</p>
+        <p>Full log of every drop-off, payment, and zone visit in one place.</p>
       </div>
       <div class="feature">
-        <div class="feature-icon">🔒</div>
+        <div class="feature-marker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
         <h3>Private by Design</h3>
-        <p>Location data never leaves your device. No tracking, no ads.</p>
+        <p>Location data never leaves your device. No tracking, no ads, no data sold.</p>
       </div>
     </div>
   </section>
 
-  <!-- AIRPORTS -->
-  <section class="section" style="padding-top:0;" id="airports">
-    <div class="section-label">SUPPORTED AIRPORTS</div>
-    <h2 class="section-title">All major<br><em>London airports.</em></h2>
+  <!-- TRUST -->
+  <section class="section" style="padding-top:0;">
+    <div class="section-label">WHAT'S INCLUDED</div>
+    <h2 class="section-title">Built for<br><em>professional drivers.</em></h2>
 
-    <div class="airport-grid">
-      <div class="airport-pill"><span class="dot"></span>Heathrow T2</div>
-      <div class="airport-pill"><span class="dot"></span>Heathrow T3</div>
-      <div class="airport-pill"><span class="dot"></span>Heathrow T4</div>
-      <div class="airport-pill"><span class="dot"></span>Heathrow T5</div>
-      <div class="airport-pill"><span class="dot"></span>Gatwick North</div>
-      <div class="airport-pill"><span class="dot"></span>Gatwick South</div>
-      <div class="airport-pill"><span class="dot"></span>Stansted</div>
-      <div class="airport-pill"><span class="dot"></span>Luton</div>
-      <div class="airport-pill"><span class="dot"></span>London City</div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Airport drop-off reminders</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Congestion Charge Zone support</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>ULEZ support</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Background zone detection</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Custom payment reminders</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Works with app closed or screen off</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="section" style="padding-top:0;">
+    <div class="privacy-card">
+      <div class="privacy-card-left">
+        <div class="section-label" style="margin-bottom:16px;">PRIVACY FIRST</div>
+        <h2 class="section-title" style="margin-bottom:0;">You're in<br><em>control.</em></h2>
+      </div>
+      <div class="privacy-card-right">
+        <p>NoFine does not track full journeys or driving history. The app only checks supported charge zones to help you avoid penalties.</p>
+        <p>Your location is processed entirely on your device and is never sent to our servers. No tracking. No data sold. No ads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONES -->
+  <section class="section" style="padding-top:0;" id="zones">
+    <div class="section-label">SUPPORTED ZONES</div>
+    <h2 class="section-title">Every London<br><em>charge zone.</em></h2>
+
+    <div class="zone-grid">
+      <div class="zone-pill"><span class="dot"></span>Heathrow T2</div>
+      <div class="zone-pill"><span class="dot"></span>Heathrow T3</div>
+      <div class="zone-pill"><span class="dot"></span>Heathrow T4</div>
+      <div class="zone-pill"><span class="dot"></span>Heathrow T5</div>
+      <div class="zone-pill"><span class="dot"></span>Gatwick North</div>
+      <div class="zone-pill"><span class="dot"></span>Gatwick South</div>
+      <div class="zone-pill"><span class="dot"></span>Stansted</div>
+      <div class="zone-pill"><span class="dot"></span>Luton</div>
+      <div class="zone-pill"><span class="dot"></span>London City</div>
+      <div class="zone-pill"><span class="dot"></span>Congestion Charge Zone</div>
+      <div class="zone-pill"><span class="dot"></span>Ultra Low Emission Zone</div>
     </div>
   </section>
 
@@ -843,7 +916,7 @@
   <div class="cta-section">
     <div class="cta-inner">
       <h2>Stop paying<br><em>fine money.</em></h2>
-      <p>Download NoFine and never miss an airport drop-off payment again.</p>
+      <p>Download NoFine and never miss another airport or road charge payment.</p>
       <a class="btn-primary" href="https://apps.apple.com/app/nofine/id6762614611" style="display:inline-flex;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store
@@ -857,7 +930,8 @@
       <span class="footer-logo">NOFINE</span>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
-        <a href="mailto:support@nofine.app">Support</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="mailto:support@nofine.app">support@nofine.app</a>
         <a href="#">© 2026 NoFine</a>
       </div>
     </div>

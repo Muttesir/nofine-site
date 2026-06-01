@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use · NoFine</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #42d686;
+      --bg: #0a0c12;
+      --bg2: #111318;
+      --bg3: #181c25;
+      --border: #22262f;
+      --text: #f4f5f8;
+      --muted: #888d99;
+      --dim: #565a66;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 12, 18, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+    }
+
+    .nav-logo {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--green);
+      letter-spacing: 3px;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px 96px;
+    }
+
+    .page-label {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .updated {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 1px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+
+    ul li {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.75;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '·';
+      position: absolute;
+      left: 6px;
+      color: var(--dim);
+    }
+
+    strong { color: var(--text); font-weight: 600; }
+
+    footer { border-top: 1px solid var(--border); }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer a {
+      font-size: 12px;
+      color: var(--dim);
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--muted); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .nav-inner, main { padding-left: 20px; padding-right: 20px; }
+      h1 { font-size: 28px; }
+      main { padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">NOFINE</a>
+      <a href="index.html" class="nav-back">← Back</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-label">LEGAL</div>
+    <h1>Terms of Use</h1>
+    <p class="updated">LAST UPDATED · JUNE 2026</p>
+
+    <p class="intro">By downloading or using NoFine, you agree to these terms. Please read them carefully. If you do not agree, do not use the app.</p>
+
+    <h2>1. ABOUT NOFINE</h2>
+    <p>NoFine is a mobile application that uses GPS geofencing to detect when you enter charge zones and reminds you to pay the applicable fees. NoFine is an independent product and is not affiliated with any airport, local authority, or government body.</p>
+
+    <h2>2. YOUR RESPONSIBILITIES</h2>
+    <ul>
+      <li>You are solely responsible for paying all applicable charges and fees on time.</li>
+      <li>NoFine is a reminder tool — we do not guarantee detection of every zone entry in all conditions.</li>
+      <li>You must ensure your vehicle registration plate is entered correctly for payment links and reminders to work.</li>
+      <li>Grant the app background location permission for automatic zone detection to function.</li>
+    </ul>
+
+    <h2>3. NO LIABILITY FOR PENALTIES</h2>
+    <p>NoFine is designed to help you avoid penalties, but we cannot guarantee that every zone entry will be detected or that every reminder will be received. <strong>We accept no liability for any fines, penalties, or charges you incur</strong>, whether or not you used the app.</p>
+
+    <h2>4. ACCURACY OF ZONE DATA</h2>
+    <p>Zone coordinates, fees, and payment links are based on publicly available information and are updated periodically. NoFine makes no warranty that zone data is current, complete, or accurate. Always verify payment requirements directly with the relevant authority.</p>
+
+    <h2>5. ACCEPTABLE USE</h2>
+    <ul>
+      <li>Use NoFine only for lawful purposes.</li>
+      <li>Do not attempt to reverse-engineer, modify, or misuse the app.</li>
+      <li>Do not use the app while driving — always pull over safely before interacting.</li>
+    </ul>
+
+    <h2>6. INTELLECTUAL PROPERTY</h2>
+    <p>All content, design, and code within NoFine is the property of NoFine and may not be reproduced without permission.</p>
+
+    <h2>7. CHANGES TO THESE TERMS</h2>
+    <p>We may update these terms at any time. Continued use of the app after changes constitutes acceptance of the new terms. Updates will be posted on this page with a revised date.</p>
+
+    <h2>8. GOVERNING LAW</h2>
+    <p>These terms are governed by the laws of England and Wales.</p>
+
+    <h2>9. CONTACT</h2>
+    <p>Questions about these terms? Contact us at <a href="mailto:support@nofine.app">support@nofine.app</a>.</p>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span style="font-family:'Courier New',monospace;font-size:13px;color:var(--dim);letter-spacing:2px;">NOFINE</span>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:support@nofine.app">Support</a>
+        <a href="#">© 2026 NoFine</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
