@@ -648,7 +648,8 @@
     /* Terminal */
     .terminal {
       position: absolute;
-      right: 60px;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: 32px;
       display: flex;
       align-items: flex-end;
@@ -767,8 +768,8 @@
 
     @keyframes drive {
       0%   { left: -100px; }
-      35%  { left: calc(62% - 140px); } /* arrive near terminal */
-      55%  { left: calc(62% - 140px); } /* stopped */
+      35%  { left: calc(50% - 175px); } /* arrive — right edge touches terminal left */
+      55%  { left: calc(50% - 175px); } /* stopped */
       80%  { left: calc(100% + 20px); } /* drive away */
       100% { left: calc(100% + 20px); } /* pause off-screen */
     }
