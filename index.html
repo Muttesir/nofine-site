@@ -618,7 +618,7 @@
     .taxi-scene {
       max-width: 960px;
       margin: 0 auto;
-      height: 180px;
+      height: 220px;
       position: relative;
       overflow: hidden;
     }
@@ -650,76 +650,166 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 32px;
+      bottom: 36px;
       display: flex;
       align-items: flex-end;
       gap: 0;
     }
 
+    /* Control tower */
     .terminal-tower {
-      width: 18px;
-      height: 70px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-bottom: none;
-      border-radius: 3px 3px 0 0;
-    }
-
-    .terminal-body {
-      width: 110px;
-      height: 52px;
-      background: var(--bg3);
+      width: 22px;
+      height: 110px;
+      background: linear-gradient(180deg, #1e2530 0%, var(--bg3) 100%);
       border: 1px solid var(--border);
       border-bottom: none;
       border-radius: 4px 4px 0 0;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* Tower cab (glass top) */
+    .terminal-tower::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -5px;
+      width: 32px;
+      height: 16px;
+      background: rgba(66, 214, 134, 0.1);
+      border: 1px solid rgba(66, 214, 134, 0.3);
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* Tower antenna */
+    .terminal-tower::after {
+      content: '';
+      position: absolute;
+      top: -26px;
+      left: 10px;
+      width: 2px;
+      height: 14px;
+      background: var(--dim);
+      border-radius: 1px;
+    }
+
+    /* Main terminal building */
+    .terminal-body {
+      width: 200px;
+      height: 80px;
+      background: linear-gradient(180deg, #1e2530 0%, var(--bg3) 100%);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      justify-content: flex-start;
+      padding-top: 10px;
+      gap: 8px;
+      position: relative;
+    }
+
+    /* Roof overhang */
+    .terminal-body::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -8px;
+      right: -8px;
+      height: 8px;
+      background: #1a1f2a;
+      border: 1px solid var(--border);
+      border-radius: 4px 4px 0 0;
     }
 
     .terminal-windows {
       display: flex;
-      gap: 5px;
+      gap: 6px;
     }
 
     .win {
-      width: 10px;
-      height: 10px;
-      background: rgba(66, 214, 134, 0.15);
-      border: 1px solid rgba(66, 214, 134, 0.25);
-      border-radius: 1px;
+      width: 14px;
+      height: 22px;
+      background: rgba(66, 214, 134, 0.08);
+      border: 1px solid rgba(66, 214, 134, 0.2);
+      border-radius: 2px 2px 0 0;
       animation: winblink 4s ease-in-out infinite;
+      position: relative;
     }
 
-    .win:nth-child(2) { animation-delay: 0.6s; }
-    .win:nth-child(4) { animation-delay: 1.2s; }
-    .win:nth-child(6) { animation-delay: 1.8s; }
+    /* Window reflection */
+    .win::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 3px;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 1px;
+    }
+
+    .win:nth-child(2) { animation-delay: 0.5s; height: 26px; }
+    .win:nth-child(3) { animation-delay: 1s; }
+    .win:nth-child(4) { animation-delay: 1.5s; height: 26px; }
+    .win:nth-child(5) { animation-delay: 2s; }
+    .win:nth-child(6) { animation-delay: 2.5s; height: 26px; }
+    .win:nth-child(7) { animation-delay: 0.8s; }
+    .win:nth-child(8) { animation-delay: 1.3s; height: 26px; }
 
     @keyframes winblink {
-      0%, 90%, 100% { background: rgba(66, 214, 134, 0.15); }
-      95% { background: rgba(66, 214, 134, 0.4); }
+      0%, 85%, 100% { background: rgba(66, 214, 134, 0.08); }
+      90% { background: rgba(66, 214, 134, 0.35); border-color: rgba(66,214,134,0.5); }
     }
 
     .terminal-sign {
       font-family: 'Courier New', monospace;
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--green);
-      letter-spacing: 2px;
-      opacity: 0.8;
+      letter-spacing: 3px;
+      opacity: 0.9;
     }
 
-    .terminal-jetway {
-      width: 30px;
-      height: 12px;
-      background: var(--bg3);
+    /* Canopy / drop-off shelter */
+    .terminal-canopy {
+      width: 220px;
+      height: 10px;
+      background: #1a1f2a;
       border: 1px solid var(--border);
       border-bottom: none;
-      border-radius: 2px 2px 0 0;
-      margin-left: 8px;
+      border-radius: 0;
       align-self: flex-end;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: -220px;
+      margin-bottom: 0;
+    }
+
+    /* Canopy support pillars */
+    .terminal-canopy::before,
+    .terminal-canopy::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      width: 3px;
+      height: 20px;
+      background: var(--border);
+    }
+
+    .terminal-canopy::before { left: 20px; }
+    .terminal-canopy::after  { right: 20px; }
+
+    /* Side wing */
+    .terminal-wing {
+      width: 60px;
+      height: 50px;
+      background: linear-gradient(180deg, #1a1f2a 0%, var(--bg3) 100%);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      flex-shrink: 0;
     }
 
     /* Road */
@@ -884,9 +974,10 @@
     }
 
     @media (max-width: 720px) {
-      .taxi-scene { height: 180px; }
-      .terminal-body { width: 80px; height: 42px; }
-      .terminal-tower { height: 55px; }
+      .taxi-scene { height: 200px; }
+      .terminal-body { width: 140px; height: 60px; }
+      .terminal-tower { height: 80px; }
+      .terminal-wing { width: 40px; height: 36px; }
       .taxi-bubble { width: 165px; left: -37px; }
     }
 
@@ -1041,10 +1132,11 @@
           <div class="terminal-windows">
             <div class="win"></div><div class="win"></div><div class="win"></div>
             <div class="win"></div><div class="win"></div><div class="win"></div>
+            <div class="win"></div><div class="win"></div>
           </div>
           <div class="terminal-sign">AIRPORT</div>
         </div>
-        <div class="terminal-jetway"></div>
+        <div class="terminal-wing"></div>
       </div>
 
       <!-- Road -->
